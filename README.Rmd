@@ -1,18 +1,20 @@
-# Analyses for BIOGEA project
+# BIOGEA analyses
 
 *Adara Pardo* (adharapv@gmail.com)
 
 An automated processing chain for the detection of natural elements in agrarian landscapes from aerial images, based on an object-based image classification procedure
 
 ```r
-# Script for downloading google earthe at a high resolution (30 cm)
-# and patch them together
+# Load required libraries
 
 library(rgdal);library(dismo)
 library(stringi);library(tidyverse)
 library(SDMTools);library(caret)
 library(spatialEco);library(kernlab)
 library(stringi)
+
+# Downloading google earthe at a high resolution (30 cm)
+# and patch them together
 
 # read in training polygons
 map<-readOGR("/mnt/data1tb/Dropbox/curruspita/data/","CLM_Trainingpolygons")
@@ -138,9 +140,6 @@ results <- resamples(list(RF=mod1, SVM=mod2))
 #Optmize segmentation through a grid search for the best threshold parameter.
 # Quality assessed using intra-segment variance. More metrics need to
 # be implemented (https://www.tandfonline.com/doi/abs/10.1080/01431160600617194)
-
-# THIS IS AN EXAMPLE WITH ONE FILE: EVERYTHING SHOULD BE PUT IN A LOOP FROM THE START
-# WITH MANY NEW PREDICTION AREAS
 
 # read file into GRASS
 system("r.in.gdal in=/mnt/data1tb/Dropbox/curruspita/newdata/exampletoclassify.tif out=example -o --o")
