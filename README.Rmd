@@ -1,11 +1,9 @@
-# biogea
+# Analyses for BIOGEA project
 *Adara Pardo* (adharapv@gmail.com) 
 
 An automated processing chain for the detection of natural elements in agrarian landscapes from aerial images, based on an object-based image classification procedure
 
-
-# Downloading google earth images at a high resolution (30 cm)
-# and patch them together
+## Upload required libraries
 
 ```
 library(rgdal);library(dismo)
@@ -14,6 +12,7 @@ library(SDMTools);library(caret)
 library(spatialEco);library(kernlab)
 library(stringi)
 ```
+# Downloading google earth images at a high resolution (30 cm) and patch them together
 
 # read in training polygons
 ```
